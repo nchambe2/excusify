@@ -1,3 +1,7 @@
+get "/ttrraaffiicc" do
+  ENV["GOOGLE_KEY"]
+end
+
 get "/excuses" do
  @excuses = Excuse.all
   erb :"excuses/index"
