@@ -3,7 +3,6 @@ get '/login' do
 end
 
 post '/login' do
-  p params
   user = User.find_by(email: params[:users][:email])
   if user && user.authenticate(params[:users][:password])
     session[:user_id] = user.id
