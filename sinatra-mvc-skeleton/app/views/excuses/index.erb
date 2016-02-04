@@ -7,7 +7,9 @@
     <ul>
       <% @excuses.each do |excuse| %>
         <li><%= excuse.body %></li>
-        <a href="#">View</a>
+        <% if current_user && current_user.id == excuse.creator_id %>
+          <a href="/excuses/<%= excuse.id %>">View</a>
+        <% end %>
       <% end %>
     </ul>
   </article>

@@ -1,0 +1,9 @@
+<section>
+  <h1>Excuse</h1>
+  <p><%= @excuse.body %></p>
+    <a href="/excuses/<%= @excuse.id %>/edit">Edit</a>
+    <form method="post" action="/excuses/<%= @excuse.id %>">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete">
+    </form>
+</section>

@@ -1,0 +1,10 @@
+<%= erb :"partials/_create_account_errors", locals: { errors: @errors } %>
+<section>
+  <h1>Update your excuse:</h1>
+  <form method="post" action="/excuses/<%= @excuse.id %>">
+    <input type="hidden" name="_method" value="put">
+    <textarea type="text"name="body"><%= @excuse.body %></textarea>
+    <br>
+    <input type="submit" value="Update">
+  </form>
+</section>
