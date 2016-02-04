@@ -1,0 +1,12 @@
+<%= erb :"partials/_login_errors", locals: { errors: @errors } %>
+<section>
+  <form method="post" action="/login">
+    <label for="email">Email:</label>
+    <input type="text" name="users[email]" placeholder="Email">
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" name="users[password]" placeholder="Password">
+    <br>
+    <input type="submit" value="Login">
+  </form>
+</section>
