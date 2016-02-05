@@ -22,14 +22,32 @@ $(document).ready(function() {
       var lat = response.location.lat;
       var lng = response.location.lng;
       var accuracy = response.accuracy;
+
+      console.log(lat);
+      console.log(lng);
+      console.log(accuracy);
     });
+
 
     request.fail(function (error) {
       var xyz = error;
     });
   }
 
+  $(".excuse").on("submit", "#rating", function(event){
+      event.preventDefault();
+      var action = $(this).attr("action");
+      var ratingData = $(this).serialize();
+      var request = $.ajax({
+          method: "post",
+          url: action,
+          data: ratingData
+      });
 
+      request.done(function(rating){
+          $(this).find('#' + rating.rating_value).prop('checked', true);
+      }.bind(this));
+  });
   // $("form").on("submit", getLocationFromGMaps);
 
   // function initMap() {

@@ -1,9 +1,11 @@
-<%= erb :"partials/_create_account_errors", locals: { errors: @errors } %>
-<section>
+<section class="container">
+  <%= erb :"partials/_create_account_errors", locals: { errors: @errors } %>
   <h1>Create an excuse:</h1>
-  <form method="post" action="/excuses">
-    <textarea type="text"name="body" placholder="Excuse"></textarea>
-    <br>
-    <input type="submit" value="Create">
+  <form role="form" method="post" action="/excuses">
+    <div class = "form-group">
+      <textarea class = "form-control" rows = "3" type="text"name="body" placholder="Excuse"></textarea>
+      <br>
+      <input class="button" type="submit" value="Create">
+    </div>
   </form>
 </section>
