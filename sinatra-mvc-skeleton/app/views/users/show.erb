@@ -1,0 +1,16 @@
+<section>
+  <article>
+    <h2>Created Excuses</h2>
+    <% current_user.excuses.each do |excuse| %>
+      <p><%= excuse.body %></p>
+    <% end %>
+  </article>
+  <article>
+    <h2>Rated Excuses</h2>
+    <% current_user.reviews.each do |review| %>
+      <% excuse_id = review.excuse_id %>
+      <% excuse = Excuse.find(excuse_id) %>
+      <p><%= excuse.body %></p>
+    <% end %>
+  </article>
+</section>
