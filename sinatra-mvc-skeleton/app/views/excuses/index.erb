@@ -3,13 +3,35 @@
     <h1>Excuses</h1>
     <% if current_user %>
       <a href="/excuses/new">Add a new excuse</a>
+      <a href="/traffic">Generate a traffic related excuse</a>
     <% end %>
     <ul>
       <% @excuses.each do |excuse| %>
         <li><%= excuse.body %></li>
+        <div>
+        </div>
         <% if current_user && current_user.id == excuse.creator_id %>
           <a href="/excuses/<%= excuse.id %>">View</a>
         <% end %>
+        <% if current_user %>
+          <a href="/excuses/<%= excuse.id %>/comments"><%= excuse.comments.count %>
+            <% if excuse.comments.count == 1 %>
+                comment
+            <% else %>
+              comments
+            <% end %>
+          </a>
+       <% end %>
+      <%= erb :"partials/_create_account_errors", locals: { errors: @errors } %>
+      <form method="post" action="/excuses/<%= excuse.id %>/review">
+        <legend>Please rate:</legend>
+        <input type="radio" name="example" class="rating" value="1" /><label>5 stars</label>
+        <input type="radio" name="example" class="rating" value="2" /><label>4 stars</label>
+        <input type="radio" name="example" class="rating" value="3" /><label>3 stars</label>
+        <input type="radio" name="example" class="rating" value="4" /><label>2 stars</label>
+        <input type="radio" name="example" class="rating" value="5" /><label>1 stars</label>
+        <input type="submit" value="Rate">
+      </form>
       <% end %>
     </ul>
   </article>

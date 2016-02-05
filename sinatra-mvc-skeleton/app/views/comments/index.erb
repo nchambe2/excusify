@@ -1,0 +1,32 @@
+<section>
+  <h1>Excuse</h1>
+  <article>
+    <p><%= @excuse.body %></p>
+  </article>
+  <article>
+     <h2>Leave a Comment</h2>
+    <%= erb :"partials/_create_account_errors", locals: { errors: @errors } %>
+    <form method="post" action="/excuses/<%= @excuse.id %>/comments">
+      <textarea type="text" name="comment_body" placeholder="Comment"></textarea>
+      <br>
+      <input type="submit" value="Comment">
+    </form>
+  </article>
+  <article>
+    <h2>Comments</h2>
+    <%  @excuse.comments.each do |comment| %>
+      <p><%= comment.body %></p>
+      <!-- horrible place to put this -->
+      <% user = comment.commenter_id %>
+      <% commenter = User.find(user) %>
+      <p><%= commenter.first_name %> <%= commenter.last_name %></p>
+      <% if current_user.id  == comment.commenter_id %>
+        <a href="/excuses/<%= @excuse.id %>/comments/<%= comment.id %>/edit">Edit</a>
+        <form method="post" action="/excuses/<%= @excuse.id %>/comments/<%= comment.id %>">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Delete">
+        </form>
+      <% end %>
+    <% end %>
+  </article>
+</section>

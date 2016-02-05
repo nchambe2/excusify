@@ -3,7 +3,7 @@ $(document).ready(function() {
 
   var request = $.ajax({
       method: "get",
-      url: '/ttrraaffiicc'
+      url: '/traffic'
     });
   request.done(function (secretGMapKey) {
     googleMapsKey = secretGMapKey;
@@ -30,5 +30,18 @@ $(document).ready(function() {
   }
 
 
-  $("form").on("submit", getLocationFromGMaps);
+  // $("form").on("submit", getLocationFromGMaps);
+
+  // function initMap() {
+  //    var map = new google.maps.Map(document.getElementById('map'), {
+  //      zoom: 13,
+  //      center: {lat: 47.62040000000000, lng: 122.34910000000000}
+  //    });
+
+  //    var trafficLayer = new google.maps.TrafficLayer();
+  //    trafficLayer.setMap(map);
+  //  }
+
+
+
 });
