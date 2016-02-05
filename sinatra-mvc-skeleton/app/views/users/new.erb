@@ -1,18 +1,21 @@
-<%= erb :"partials/_create_account_errors", locals: { errors: @errors } %>
-<section>
-  <form method="post" action="/users">
-    <label for="first_name">First Name:</label>
-    <input type="text" name="first_name" placeholder="First Name">
-    <br>
-    <label for="last_name">Last Name:</label>
-    <input type="text" name="last_name" placeholder="Last Name">
-    <br>
-    <label for="email">Email:</label>
-    <input type="text" name="email" placeholder="Email">
-    <br>
-    <label for="password">Password:</label>
-    <input type="password" name="password" placeholder="Password">
-    <br>
-    <input type="submit" value="Login">
+<section class="container">
+    <h1 class="text-center">Join Excusify</h1>
+  <%= erb :"partials/_create_account_errors", locals: { errors: @errors } %>
+  <form role="form" method="post" action="/users">
+    <div class="form-group">
+        <label for="first_name">First Name:</label>
+        <input type="text" class="form-control" name="first_name" placeholder="First Name">
+        <br>
+        <label for="last_name">Last Name:</label>
+        <input type="text" class="form-control" name="last_name" placeholder="Last Name">
+        <br>
+        <label for="email">Email:</label>
+        <input type="text" class="form-control" name="email" placeholder="Email">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" name="password" placeholder="Password">
+        <br>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </div>
   </form>
 </section>

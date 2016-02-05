@@ -1,12 +1,15 @@
-<%= erb :"partials/_login_errors", locals: { errors: @errors } %>
-<section>
-  <form method="post" action="/login">
-    <label for="email">Email:</label>
-    <input type="text" name="users[email]" placeholder="Email">
-    <br>
-    <label for="password">Password:</label>
-    <input type="password" name="users[password]" placeholder="Password">
-    <br>
-    <input type="submit" value="Login">
+<section class="container">
+  <h1 class="text-center">Login</h1>
+  <%= erb :"partials/_login_errors", locals: { errors: @errors } %>
+  <form role="form" method="post" action="/login">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" class="form-control" name="users[email]" placeholder="Email">
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" name="users[password]" placeholder="Password">
+      <br>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
   </form>
 </section>

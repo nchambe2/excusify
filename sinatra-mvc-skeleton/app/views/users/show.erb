@@ -1,0 +1,20 @@
+<section class="container">
+  <article>
+    <h2 class="text-center header">Created Excuses</h2>
+    <% current_user.excuses.each do |excuse| %>
+    <ul class="excuse">
+      <li class="excuse-body"><%= excuse.body %></li>
+    </ul>
+    <% end %>
+  </article>
+  <article>
+    <h2 class="text-center header">Rated Excuses</h2>
+    <% current_user.reviews.each do |review| %>
+      <% excuse_id = review.excuse_id %>
+      <% excuse = Excuse.find(excuse_id) %>
+      <ul class="excuse">
+        <li class="excuse-body"><%= excuse.body %></li>
+      </ul>
+    <% end %>
+  </article>
+</section>

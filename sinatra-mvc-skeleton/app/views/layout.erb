@@ -12,25 +12,28 @@
   -->
   <link rel="stylesheet" href="/css/application.css">
   <!-- Load Vollkorn font -->
-  <link href='http://fonts.googleapis.com/css?family=Vollkorn:400italic,400' rel='stylesheet' type='text/css'>
-
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <script src="/js/application.js"></script>
-
-  <title></title>
+  <title>Excusify</title>
 </head>
 <body>
 <div id="content">
   <header>
-    <a href="/"><img src="/img/zenchinese.png" class="logo"></a>
-    <div id="login-toolbar">
-      <% if current_user %>
-        <a href="#"><%= current_user.first_name %> <%= current_user.last_name %></a>
-        <a href="/logout">Logout</a>
-      <% else %>
-        <a href="/users/new">Create Account</a>
-        <a href="/login">Login</a>
-      <% end %>
+    <nav class="navbar navbar-inverse">
+        <a class="navbar-brand" href="/">Excusify</a>
+       <ul class="nav navbar-nav pull-right">
+          <% if current_user %>
+            <li class="nav-link"><a class="nav nav-pills" href="/users/<%= current_user.id %>"><%= current_user.first_name %> <%= current_user.last_name %></a></li>
+            <li class="nav-link"><a role="presentation"class="nav nav-pills" href="/logout">Logout</a></li>
+          <% else %>
+            <li class="nav-link"><a href="/users/new">Create Account</a></li>
+            <li class="nav-link"><a href="/login">Login</a></li>
+          <% end %>
+        </ul>
+    </nav>
   </header>
   <%= yield %>
 </div>

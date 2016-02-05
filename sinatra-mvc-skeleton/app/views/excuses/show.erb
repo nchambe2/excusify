@@ -1,0 +1,12 @@
+<section class="container">
+  <h1 class="text-center header">Excuse</h1>
+  <p class="excuse-body"><%= @excuse.body %></p>
+    <a href="/excuses/<%= @excuse.id %>/edit"><button type="button" class="btn btn-primary">Edit</button></a>
+    <audio controls>
+      <source src="<%= @excuse.audio_file %>" type="audio/mp3">
+    </audio>
+    <form class="delete-form delete-more" method="post" action="/excuses/<%= @excuse.id %>">
+      <input type="hidden" name="_method" value="delete">
+      <input class="button" type="submit" value="Delete">
+    </form>
+</section>

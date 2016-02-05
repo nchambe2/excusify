@@ -1,0 +1,12 @@
+<section class="container">
+  <h1 class="text-center header">Update you comment</h1>
+  <%= erb :"partials/_create_account_errors", locals: { errors: @errors } %>
+  <form role="form" method="post" action="/excuses/<%= @excuse.id %>/comments/<%= @comment.id %>">
+    <div class = "form-group">
+      <input type="hidden" name="_method" value="put">
+      <textarea  class="form-control" rows = "3" type="text" name="comment_body"><%= @comment.body %></textarea>
+      <br>
+      <input class="button" type="submit" value="Comment">
+    </div>
+  </form>
+</section>
